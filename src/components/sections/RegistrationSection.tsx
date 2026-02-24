@@ -2,15 +2,21 @@ import { useState } from "react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Container } from "@/components/layout";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export function RegistrationSection() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [form, setForm] = useState({ first_name: "", last_name: "", email: "", phone: "" });
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
     setSubmitted(true);
+    navigate(
+      `/thank-you?first_name=${encodeURIComponent(form.first_name)}&last_name=${encodeURIComponent(
+        form.last_name
+      )}&email=${encodeURIComponent(form.email)}&phone=${encodeURIComponent(form.phone)}`
+    );
   };
 
   return (
@@ -41,18 +47,34 @@ export function RegistrationSection() {
           ) : (
             <FadeIn delay={0.1}>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="text-xs tracking-widest text-muted-foreground uppercase block mb-2">
-                    Імʼя
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Як до вас звертатися"
-                    value={form.name}
-                    onChange={e => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-transparent border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-muted-foreground transition-colors"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs tracking-widest text-muted-foreground uppercase block mb-2">
+                      Імʼя
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ваше ім'я"
+                      value={form.first_name}
+                      onChange={e => setForm({ ...form, first_name: e.target.value })}
+                      className="w-full bg-transparent border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-muted-foreground transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-xs tracking-widest text-muted-foreground uppercase block mb-2">
+                      Прізвище
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ваше прізвище"
+                      value={form.last_name}
+                      onChange={e => setForm({ ...form, last_name: e.target.value })}
+                      className="w-full bg-transparent border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-muted-foreground transition-colors"
+                    />
+                  </div>
                 </div>
 
                 <div>
