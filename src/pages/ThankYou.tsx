@@ -55,14 +55,14 @@ export function ThankYou() {
             </h1>
             <p className="text-muted-foreground leading-relaxed mb-12">
               Деталі вебінару надійдуть на вашу пошту.<br />
-              А поки — ваш бонус:
+            
             </p>
           </div>
 
           <FadeIn delay={0.4}>
             <div className="border border-border p-8 mb-10">
               <p className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-4">
-                Лід-магніт
+                Отримайте ваш бонус!
               </p>
               <h2 className="text-xl font-normal mb-4">
                 Синдром самозванця: як перетворити внутрішнього критика на союзника
@@ -71,7 +71,7 @@ export function ThankYou() {
                 PDF з практичними порадами для подолання синдрому самозванця та розвитку впевненості у своїх силах.
               </p>
               <Button variant="outline" size="lg" asChild>
-                <a href="https://drive.google.com/file/d/1uCoY8VPqD4p8m6OS4Yg-PLo-CDRZGMUq/view?usp=sharingf" download>
+                <a href="/bonus.pdf" download>
                   Завантажити PDF
                 </a>
               </Button>
@@ -81,7 +81,7 @@ export function ThankYou() {
           <FadeIn delay={0.5}>
             <div className="border border-border p-8 mb-10">
               <p className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-4">
-                Коротка анкета
+                Заповніть анкету для бажаючих прийняти участь у вебінарі
               </p>
               <p className="text-sm text-muted-foreground mb-4">
                 Короткі питання — займе ~1 хвилину.

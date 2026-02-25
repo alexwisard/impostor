@@ -42,7 +42,7 @@ export function HeroSection() {
             </FadeIn>
             <FadeIn delay={0.65}>
               <Button size="lg" asChild>
-                <a href="#register">Пройти тест і зареєструватися</a>
+                <a href="#register">Зареєструватися і отримати бонус</a>
               </Button>
             </FadeIn>
           </div>

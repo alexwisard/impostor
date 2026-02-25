@@ -9,9 +9,22 @@ export function RegistrationSection() {
   const [form, setForm] = useState({ first_name: "", last_name: "", email: "", phone: "" });
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    // Отправка данных формы на сервер
+    try {
+      await fetch("https://hook.eu1.make.com/92k5tm0l67vt39orcsbba2bo38hh95vm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+    } catch (error) {
+      // Можно добавить обработку ошибки
+      console.error("Ошибка отправки формы:", error);
+    }
     navigate(
       `/thank-you?first_name=${encodeURIComponent(form.first_name)}&last_name=${encodeURIComponent(
         form.last_name
@@ -28,10 +41,10 @@ export function RegistrationSection() {
               Реєстрація
             </p>
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-normal mb-4 leading-tight">
-              Пройти тест і зареєструватися
+              Зареєструйтеся і отримайте бонус: PDF з практичними порадами для подолання синдрому самозванця!
             </h2>
             <p className="text-muted-foreground mb-10 leading-relaxed">
-              Після реєстрації ви отримаєте посилання на тест і деталі вебінару.
+              Після реєстрації ви отримаєте посилання на бонус.
             </p>
           </FadeIn>
 
