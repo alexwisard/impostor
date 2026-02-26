@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Container } from "@/components/layout";
 import { Button } from "@/components/ui/button";
+import { DownloadBonusButton } from "./DownloadBonusButton";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export function ThankYou() {
@@ -70,11 +71,7 @@ export function ThankYou() {
               <p className="text-muted-foreground text-sm mb-6">
                 PDF з практичними порадами для подолання синдрому самозванця та розвитку впевненості у своїх силах.
               </p>
-              <Button variant="outline" size="lg" asChild>
-                <a href="/bonus.pdf" download>
-                  Завантажити PDF
-                </a>
-              </Button>
+              <DownloadBonusButton email={prefillEmail} />
             </div>
           </FadeIn>
 
